@@ -8,8 +8,8 @@
 #include <avr/interrupt.h>
 #include "../lib/bits.h"
 
-void timer0_hardware_init(uint8_t top, uint8_t prescale);
+void timer0_hardware_init(uint8_t top, uint8_t mode_prescale);
 void timer1_hardware_init(uint16_t top, uint8_t prescale);
-void timer2_hardware_init(uint8_t top, uint8_t prescale);
+void timer2_hardware_init(uint8_t top, uint8_t mode_prescale);
 
 #endif

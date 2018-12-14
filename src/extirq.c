@@ -9,7 +9,7 @@ static volatile pin1_prev = 0x7f;
 static volatile pin0_prev = 0xff;
 */
 
-static volatile pd_flag = 0x00;
+static volatile uint8_t pd_flag = 0x00;
 
 uint8_t interrupt_int0(){
     if(pd_flag == 2){
@@ -21,7 +21,7 @@ uint8_t interrupt_int0(){
 }
 
 void int0_hardware_init(){
-    DDRD &= ~(0x02));
+    DDRD &= ~(0x02);
     PORTD |= 0x02;
 
     set_bit(EICRA, ISC01);

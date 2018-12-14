@@ -4,7 +4,7 @@
 #define SETUP_T 0xC2
 #define TOP_E 4
 #define SETUP_E 0x02
-#define MAX_E = 11600 
+#define MAX_E 11600 
 #define WAIT 30000
 
 static volatile uint16_t counter = 0;

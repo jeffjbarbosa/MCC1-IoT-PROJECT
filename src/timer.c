@@ -24,6 +24,8 @@ void timer0_hardware_init(uint8_t top, uint8_t mode_prescale){
     set_bit(TIMSK0, OCIE0A);
 }
 
+
+
 void timer1_hardware_init(uint16_t top, uint8_t prescale){
     // Valor de TOP:
     OCR1A = top;
@@ -60,7 +62,7 @@ void timer2_hardware_init(uint8_t top, uint8_t mode_prescale){
 	// Ligar fonte de clock:
 	TCCR2B = TCCR2B | (PRE_REG & mode_prescale);
 	// Configuração de mudança de estado:
-    TCCR2A = TCCR2A | (MOD_REG & mode_prescale)
+    TCCR2A = TCCR2A | (MOD_REG & mode_prescale);
     // Habilitação de IRQ: 
     set_bit(TIMSK2, OCIE2A);
 }

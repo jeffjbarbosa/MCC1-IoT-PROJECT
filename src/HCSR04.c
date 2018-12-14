@@ -22,7 +22,7 @@ void wait_trigger(){
     while(counter <= WAIT){}
 }
 
-ISR(TIM0_COMPA_vect){
+ISR(TIMER0_COMPA_vect){
     if(counter > WAIT){
         counter = -1;
     }else if(OCIE0A == TOP_T && counter == 1){

@@ -4,6 +4,7 @@
 #include <avr/interrupt.h>
 #include "../lib/bits.h"
 #include "../lib/timer.h"
+#include "../lib/extirq.h"
 
 void set_trigger();
 uint16_t wait_echo();

@@ -7,27 +7,28 @@
 #define MAX_E = 11600 
 #define WAIT 30000
 
-volatile uint8_t echo_interrupt = 0;
-volatile uint16_t counter = 0;
+static volatile uint8_t echo_interrupt = 0;
+static volatile uint16_t counter = 0;
 
 void set_trigger(){
     timer0_hardware_init(TOP_T, SETUP_T);
-    while(counter <= 5);
 }
 
 uint16_t wait_echo(){
-    timer0_hardware_init(TOP_E, SETUP_E);
-    while((echo_interrupt == 0) && (counter < MAX_E+6));
-    return counter-6;
+    while((interrupt_int0() == 0) && (counter < MAX_E)){}
+    return counter<<1;
 }
 
 void wait_trigger(){
-    while(counter <= WAIT);
+    while(counter <= WAIT){}
 }
 
 ISR(TIM0_COMPA_vect){
     if(counter > WAIT){
-        counter = 0;
+        counter = -1;
+    }else if(OCIE0A == TOP_T && counter == 6){
+        timer0_hardware_init(TOP_E, SETUP_E);
+        counter = -1;
     }
 
     counter++;

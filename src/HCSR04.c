@@ -19,7 +19,7 @@ uint16_t wait_echo(){
 }
 
 void wait_trigger(){
-    while(counter <= WAIT){}
+    while(counter < WAIT){}
 }
 
 ISR(TIMER0_COMPA_vect){

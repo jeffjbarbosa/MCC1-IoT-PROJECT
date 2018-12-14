@@ -24,10 +24,10 @@ void int0_hardware_init(){
     DDRD &= ~(0x02);
     PORTD |= 0x02;
 
-    set_bit(EICRA, ISC01);
-    set_bit(EICRA, ISC00);
+    SET_BIT(EICRA, ISC01);
+    SET_BIT(EICRA, ISC00);
 
-    set_bit(EIMSK, INT0);
+    SET_BIT(EIMSK, INT0);
 }
 
 ISR(INT0_vect){
@@ -38,17 +38,17 @@ ISR(INT0_vect){
 void irq_hardware_init(uint8_t pin_rows, uint8_t * pin_change){
     PCICR |= (ROWS_REG & pin_rows);
 
-    if(tst_bit(PCICR, PCIE2)){
+    if(TST_BIT(PCICR, PCIE2)){
         DDRD |= pin_change[2];
         PORTD |= pin_change[2];
     }
 
-    if(tst_bit(PCICR, PCIE1)){
+    if(TST_BIT(PCICR, PCIE1)){
         DDRC |= (PIN1_REG & pin_change[1]);
         PORTC |= (PIN1_REG & pin_change[1]);
     }
 
-    if(tst_bit(PCICR, PCIE0)){
+    if(TST_BIT(PCICR, PCIE0)){
         DDRB |= pin_change[0];
         PORTB |= pin_change[0];
     }

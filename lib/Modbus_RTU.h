@@ -9,15 +9,15 @@
 #ifndef MODBUS_RTU_H_
 #define MODBUS_RTU_H_
 
-#include <avr/io.h>
 #include "def_principais.h"
+#include "avr_usart.h"
 
-typedef struct pacote_RTU pacote_RTU_t;
+#define addr 0x15
 
-#define NUM_BYTES 8
+//typedef struct pacote_RTU pacote_RTU_t;
 
-void envia_pacote(pacote_RTU_t *array_pacote, int tam_pacote);
+void envia_pacote(uint8_t *pkg);
 
-
+uint16_t CRC16_2(uint8_t *buf, int len);
 
 #endif /* MODBUS_RTU_H_ */

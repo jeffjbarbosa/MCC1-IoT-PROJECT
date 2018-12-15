@@ -1,4 +1,4 @@
-#include "extirq.h"
+#include "../lib/extirq.h"
 
 /*
 #define ROWS_REG 0x07

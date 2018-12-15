@@ -8,7 +8,7 @@
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>   //para o uso do PROGMEM, grava��o de dados na mem�ria flash
 #include <stdio.h>
-#include "../lib/bits.h"
+#include "bits.h"
 
 //Defini��es de macros para o trabalho com bits
 #define	set_bit(y,bit)	(y|=(1<<bit))	//coloca em 1 o bit x da vari�vel Y

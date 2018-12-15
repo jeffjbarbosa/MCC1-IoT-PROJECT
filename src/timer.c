@@ -1,4 +1,4 @@
-#include "timer.h"
+#include "../lib/timer.h"
 
 #define MOD_REG 0xC0
 #define PRE_REG 0x07

@@ -5,20 +5,21 @@
  * Author : jack
  */
 
-#include "../lib/def_principais.h"
-#include "../lib/usart.h"
+#include "../lib/avr_usart.h"
+#include "../lib/timer.h"
+#include "../lib/Modbus_RTU.h"
+#include "../lib/HCSR04.h"
 
 int main(void)
 {	
-	usart_init(MYUBRR,1,1);
-   
+	USART_Init(B9600);
+    uint8_t pacote[8] = {0x15, 0x01, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00};
+
     while (1) 
     {	
 		// test usart
-		usart_send_char(' ');
-		usart_send_string("testando a usart!");
-		usart_send_char(' ');
+		envia_pacote(pacote);
+		_delay_ms(1000);
 		
     }
 }
-

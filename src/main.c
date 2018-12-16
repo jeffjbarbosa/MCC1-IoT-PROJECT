@@ -9,29 +9,25 @@
 #include "../lib/timer.h"
 #include "../lib/Modbus_RTU.h"
 #include "../lib/HCSR04.h"
+#include "../lib/Motor_de_Passos.h"
 
 uint8_t rx_pkg[16],i;
 
 int main(void)
 {	
-	USART_Init(B9600);
-    uint8_t pacote[8] = {0x15, 0x01, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00};
+	//USART_Init(B9600);
+    //uint8_t pacote[8] = {0x15, 0x01, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00};
 		
 	sei();
 
     while (1) 
     {	
-		// test usart
-		_delay_ms(1000);
-		envia_pacote(pacote);
-		
-		
 		
     }
 }
 
 ISR(USART_RX_vect)
-{
+{	
 	for (i=0; i < 8;i++)
 		rx_pkg[i] = USART_rx();
 }

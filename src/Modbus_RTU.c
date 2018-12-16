@@ -49,8 +49,3 @@ uint16_t CRC16_2(uint8_t *buf, int len)
 	// Note, this number has low and high bytes swapped, so use it accordingly (or swap bytes)
 	return crc;
 }
-
-ISR(USART_RX_vect)
-{
-	
-}

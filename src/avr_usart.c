@@ -34,7 +34,6 @@ void USART_Init(uint16_t bauds){
 	USART_0->UCSR_C = SET(UCSZ01) | SET(UCSZ00);
 	
 	/* RX Complete Interrupt Enable */
-	set_bit(UCSR0B,RXCIE0);
 }
 
 

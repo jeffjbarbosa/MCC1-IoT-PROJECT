@@ -9,6 +9,7 @@
 #include "../lib/timer.h"
 #include "../lib/extirq.h"
 
+void HCSR04_hardware_init();
 void set_trigger();
 uint16_t wait_echo();
 void wait_trigger();

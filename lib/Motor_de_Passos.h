@@ -18,8 +18,10 @@
 #define PASSO_3		 0x0c
 #define PASSO_4		 0x09
 
-void rotacao_90_graus(uint8_t sentido);
+void motor_init();
 
-void rotacao_45_graus(uint8_t sentido);
+void rotacao_180_graus(uint8_t sentido);
+
+void rotacao_90_graus(uint8_t sentido);
 
 #endif /* MOTOR_DE_PASSOS_H_ */

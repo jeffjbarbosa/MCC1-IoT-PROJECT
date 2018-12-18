@@ -3,10 +3,7 @@
 #define TOP_E 4
 #define SETUP_E 0x02
 #define TRG_HIGH 10
-#define MAX_E 23200
 #define WAIT 60000
-
-static volatile uint16_t counter = 0;
 
 void HCSR04_hardware_init(){
 	DDRD |= 0x40;
@@ -15,23 +12,13 @@ void HCSR04_hardware_init(){
 	timer0_hardware_init(TOP_E, SETUP_E);
 }
 
-void set_trigger(){
+void set_trigger(volatile uint16_t counter){
 	SET_BIT(PORTD, PD6);
 	while(counter < TRG_HIGH){}
 	CLR_BIT(PORTD, PD6);
 }
 
-uint16_t wait_echo(){
-	counter = 0;
-    while((interrupt_int0() == 0) && (counter < MAX_E)){}
-    return counter;
-}
-
-void wait_trigger(){
+void wait_trigger(volatile uint16_t counter){
     while(counter < WAIT){}
-	counter = 0;
 }
 
-ISR(TIMER0_COMPA_vect){
-	counter++;	
-}

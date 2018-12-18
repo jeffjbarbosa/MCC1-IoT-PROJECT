@@ -10,8 +10,7 @@
 #include "../lib/extirq.h"
 
 void HCSR04_hardware_init();
-void set_trigger();
-uint16_t wait_echo();
-void wait_trigger();
+void set_trigger(volatile uint16_t counter);
+void wait_trigger(volatile uint16_t counter);
 
 #endif

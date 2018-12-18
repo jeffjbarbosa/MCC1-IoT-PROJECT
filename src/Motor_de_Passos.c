@@ -14,7 +14,7 @@ void motor_init(){
 	DDRB = 0x0f;
 }
 
-// rotaciona motor 90 graus anti-horario (sentido==0) ou horario (sentido==1)
+// rotaciona motor 180 graus anti-horario (sentido==0) ou horario (sentido==1)
 void rotacao_180_graus(uint8_t sentido){
 	int i;
 	uint8_t j=0;
@@ -39,7 +39,7 @@ void rotacao_180_graus(uint8_t sentido){
 	}
 }
 
-// rotaciona motor 45 graus anti-horario (sentido==0) ou horario (sentido==1)
+// rotaciona motor 90 graus anti-horario (sentido==0) ou horario (sentido==1)
 void rotacao_90_graus(uint8_t sentido){
 	int i;
 	uint8_t j=0;

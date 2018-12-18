@@ -15,7 +15,7 @@ void motor_init(){
 }
 
 // rotaciona motor 90 graus anti-horario (sentido==0) ou horario (sentido==1)
-void rotacao_90_graus(uint8_t sentido){
+void rotacao_180_graus(uint8_t sentido){
 	int i;
 	uint8_t j=0;
 	if (sentido == HORARIO)
@@ -24,7 +24,7 @@ void rotacao_90_graus(uint8_t sentido){
 			PORTB = (PORTB & 0xf0) | (0x0f & passos[j]);
 			j++;
 			if(j>=4) j=0;
-			_delay_ms(4);
+			_delay_ms(10);
 		}
 	}
 	else
@@ -34,13 +34,13 @@ void rotacao_90_graus(uint8_t sentido){
 			j--;
 			PORTB = (PORTB & 0xf0) | (0x0f & passos[j]);
 			if(j==0) j=4;
-			_delay_ms(4);
+			_delay_ms(10);
 		}
 	}
 }
 
 // rotaciona motor 45 graus anti-horario (sentido==0) ou horario (sentido==1)
-void rotacao_45_graus(uint8_t sentido){
+void rotacao_90_graus(uint8_t sentido){
 	int i;
 	uint8_t j=0;
 	if (sentido == HORARIO)
@@ -49,7 +49,7 @@ void rotacao_45_graus(uint8_t sentido){
 			PORTB = (PORTB & 0xf0) | (0x0f & passos[j]);
 			j++;
 			if(j>=4) j=0;
-			_delay_ms(4);
+			_delay_ms(10);
 		}
 	}
 	else
@@ -59,7 +59,7 @@ void rotacao_45_graus(uint8_t sentido){
 			j--;
 			PORTB = (PORTB & 0xf0) | (0x0f & passos[j]);
 			if(j==0) j=4;
-			_delay_ms(4);
+			_delay_ms(10);
 		}
 	}
 }
